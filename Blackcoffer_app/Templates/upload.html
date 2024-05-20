@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+        header {
+            background-color: white;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between; /* Align items horizontally with space between */
+            align-items: center; /* Center items vertically */
+        }
+
+        header img {
+            max-width: 80%;
+            height: auto;
+        }
+	.header-text {
+        color: #298A08; /* Set text color to green */
+        font-size: 26px; /* Increase font size */
+        font-weight: bold; /* Make text bold */
+    }
+</style>
+    <script type="text/javascript">
+        function myfunction() {
+            // You can add more logic here to check if the form submission was successful
+            var isFormSubmittedSuccessfully = true;
+
+            if (isFormSubmittedSuccessfully) {
+                alert("Imported successfully");
+            } else {
+                alert("Failed to submit form");
+            }
+        }
+    </script>
+</head>
+<body>
+<header>
+        <!-- Replace 'your_logo_url' with the actual URL of your logo image -->
+        <img src="{% static 'images/Bhuvan.jpeg' %}" alt="Logo">
+	<div class="header-text">UPLOAD DATA</div>
+	<img src="{% static 'images/nrsc.jpeg' %}" alt="Logo">
+    </header>
+<center>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+<br>
+    <button type="submit" onclick="myfunction()">Import Json</button>
+<br>
+</form>
+</center>
+</body>
+</html>

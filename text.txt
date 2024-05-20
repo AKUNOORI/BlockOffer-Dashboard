@@ -1,0 +1,11 @@
+# if end_year == '':
+                #     end_year = 0
+                # if start_year == '':
+                #     start_year = 0
+                # end_year = item['end_year'] if item['end_year'] != '' else None
+                # start_year = item['start_year'] if item['start_year'] != '' else None
+
+                            # except KeyError as ex:
+            #     return JsonResponse({"KeyError": str(ex)})
+            # except ValueError as ex:
+            #     return JsonResponse({"ValueError": str(ex)})
