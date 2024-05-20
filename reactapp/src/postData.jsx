@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './index.css'; // Import the CSS file
+import './index.css'; 
 import { Navigate } from 'react-router-dom';
 import { Chart } from 'react-google-charts';
 
@@ -17,11 +17,6 @@ const PostData = () => {
     const [responseData, setResponseData] = useState([]);
     const [error, setError] = useState(null);
     const [auth, setAuth] = useState(false);
-
-    // if (auth) {
-    //     return <Navigate to='/VisualizationComponent'/>
-    // }
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -43,7 +38,6 @@ const PostData = () => {
             });
             console.log(response.data.data);
             setResponseData(response.data.data);
-            // setAuth(true);
         } catch (error) {
             setError(error.response ? error.response.data : "Error: Unable to connect to the server");
         }
@@ -51,7 +45,6 @@ const PostData = () => {
 
       const [filter, setFilter] = useState({ country: '', topic: '' });
 
-    //   if(responseData){
       const filteredData = responseData.filter(item => {
         return (
           (filter.country === '' || item.country === filter.country) &&
@@ -64,7 +57,6 @@ const PostData = () => {
         "Mexico": "MEX",
         "Nigeria": "NGA",
         "United Kingdom": "UK",
-        // Add more mappings as needed
       };
       
       const data = [
@@ -92,13 +84,8 @@ const PostData = () => {
           title: 'Country',
         },
         seriesType: 'bars',
-        // series: {
-        //   0: { color: '#4285F4' }, // Intensity
-        //   1: { color: '#DB4437' }, // Likelihood
-        //   2: { color: '#F4B400' }  // Relevance
-        // },
       };
-    // }
+
     return (
         <div>
            <div className='main-form'>
@@ -133,15 +120,12 @@ const PostData = () => {
                     <input type="text" name="country" value={formData.country} onChange={handleChange}  />
                 </div>
                 </div>
-                {/* <button onClick={()=> setAuth(true)} type="submit">Fetch Data</button> */}
                 <button className='submitbtn' type="submit">Fetch Data</button>
             </form>
-            {/* {responseData && <div className="response">Data: {JSON.stringify(responseData)}</div>} */}
             {error && <div className="error">Error: {JSON.stringify(error)}</div>}
 
            </div>
            <div>
-                        {/* {responseData && <div className="response">Data: {JSON.stringify(responseData)}</div>} */}
 
                         {(Array.isArray(responseData) && responseData.length > 0 ) ? (
                     <div >
